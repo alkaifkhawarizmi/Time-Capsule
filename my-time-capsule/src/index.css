@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-glow {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.3);
+}
+.nav-link-glow:hover {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  overflow: hidden;
+}
+
+/* Keyframes for Text Animation */
+@keyframes textGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Text Animation */
+.animate-text {
+  background-size: 200% 200%;
+  animation: textGlow 6s ease infinite;
+}
+
+/* Starfield Background */
+.bg-stars {
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.3;
+  animation: twinkle 10s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
