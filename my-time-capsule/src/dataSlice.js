@@ -1,52 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  note: null,
-  accounts: {
-    socialName: null,
-    id: null,
-    pass: null,
-  },
-  tasks: {
-    task: null,
-    date: null,
-  },
-  contacts: {
-    contact: null,
-    contactName: null,
-  },
-};
+   DATA : JSON.parse(localStorage.getItem("DATA")) || []
+} 
 
 export const dataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    setNote: (state, action) => {
-      // Update note and save to localStorage
-      state.note = action.payload;
-      localStorage.setItem("note", action.payload);
+    setDATA: (state, action) => { 
+      // console.log(action.payload)
+      state.DATA.push(action.payload) ;
+      localStorage.setItem("DATA" , JSON.stringify(state.DATA));
     },
-    setAccounts: (state, action) => {
-      // Update accounts and save to localStorage
-      const { socialName, id, pass } = action.payload;
-      state.accounts = { socialName, id, pass };
-      localStorage.setItem("accounts", JSON.stringify(state.accounts));
-    },
-    setTasks: (state, action) => {
-      // Update tasks and save to localStorage
-      const { task, date } = action.payload;
-      state.tasks = { task, date };
-      localStorage.setItem("tasks", JSON.stringify(state.tasks));
-    },
-    setContacts: (state, action) => {
-      // Update contacts and save to localStorage
-      const { contact, contactName } = action.payload;
-      state.contacts = { contact, contactName };
-      localStorage.setItem("contacts", JSON.stringify(state.contacts));
+    deleteDATA: (state, action) => {
+      state.DATA = state.DATA.filter((item) => item.title !== action.payload);
+      localStorage.setItem("DATA", JSON.stringify(state.DATA));
     }
   },
 });
 
-export const { setNote, setAccounts, setTasks, setContacts } = dataSlice.actions;
+export const { setDATA , deleteDATA } = dataSlice.actions;
 
 export default dataSlice.reducer;

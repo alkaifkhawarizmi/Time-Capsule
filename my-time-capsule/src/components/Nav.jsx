@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 function Nav() {
   return (
@@ -13,13 +13,15 @@ function Nav() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex space-x-10">
-            <a
+            <Link
+            to={"/"}
               href=""
               className="relative group text-lg font-semibold tracking-wide text-gray-300 hover:text-cyan-400"
             >
               Home
               <span className="absolute -bottom-1 left-0 w-0 h-1 bg-cyan-400 group-hover:w-full transition-all duration-500"></span>
-            </a>
+            
+            </Link>
             <a
               href=""
               className="relative group text-lg font-semibold tracking-wide text-gray-300 hover:text-pink-400"
@@ -45,12 +47,13 @@ function Nav() {
 
           {/* Action Buttons */}
           <div className="hidden md:flex space-x-6">
-            <a
+            <Link
+            to={"/capsules"}
               href=""
               className="px-6 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 text-black rounded-full shadow-lg transform hover:scale-110 hover:shadow-cyan-400/50 transition duration-300"
             >
               Your Capsules
-            </a>
+            </Link>
             <a
               href=""
               className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-black rounded-full shadow-lg transform hover:scale-110 hover:shadow-pink-400/50 transition duration-300"
