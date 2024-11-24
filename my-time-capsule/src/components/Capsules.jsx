@@ -23,7 +23,7 @@ const Capsules = () => {
   }
 
   function handleNext(capsule){
-    navigate(`/capsule/${capsule.title}`, capsule)
+    navigate(`/capsule/${capsule.title}`, { state : capsule})
   }
 
   useEffect(() => {
