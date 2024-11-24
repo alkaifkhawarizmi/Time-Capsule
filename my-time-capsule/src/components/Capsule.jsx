@@ -9,8 +9,6 @@ function Capsule() {
   const location = useLocation();
   const capsule = location.state
 
-  const [capsules , setCapsules] = useState()
-
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
